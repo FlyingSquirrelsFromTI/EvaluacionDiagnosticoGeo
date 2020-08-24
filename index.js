@@ -1,14 +1,28 @@
 function initMap() {
 
-    var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+    let icon = 'https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png';
 
-    var coordenadas = {
-        lat: 21.152821,
-        lng: -101.711612
+    let coordsCentro = {
+        lat: 21.121786,
+        lng: -101.682587
     };
-    var map = new google.maps.Map(document.getElementById("map"), {
-        center: coordenadas,
-        zoom: 15
+    let coordsPeluqueria = {
+        lat: 21.118267,
+        lng: -101.683822
+    };
+    let coordsNuby = {
+        lat: 21.135909,
+        lng: -101.694582
+    };
+
+    let map = new google.maps.Map(document.getElementById('map'), {
+        center: coordsCentro,
+        zoom: 12
     });
-    var mark = new google.maps.Marker({ position: coordenadas, map, icon : iconBase + 'parking_lot_maps.png' });
+
+    let markers = [
+        new google.maps.Marker({ position: coordsCentro, map, icon }),
+        new google.maps.Marker({ position: coordsPeluqueria, map, icon }),
+        new google.maps.Marker({ position: coordsNuby, map, icon }),
+    ];
 }
