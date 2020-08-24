@@ -1,0 +1,7 @@
+#map {
+  width: 100%;
+  height: 350px;
+}
+body {
+  background-image: url("https://www.grupovision.org/wp-content/uploads/2016/05/google-map-background-1900x1170.png");
+}
