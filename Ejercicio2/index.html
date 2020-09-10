@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Leaflet JS -->
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="index.css">
+    <!-- Custom scripts -->
+    <script defer src="js/constants.js"></script>
+    <script defer src="js/leaflet-map.js"></script>
+    <script defer src="js/google-map.js"></script>
+
+    <!-- GoogleMaps JS -->
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCasqd_82LJEMH7kwPTB5NNUr1e26GuMqM&callback=initGoogleMap"
+        async defer></script>
+
+    <title>Comparativa Leaflet - GMaps</title>
+</head>
+
+<body>
+    <div class="root">
+        <div id="main-title">
+            <h1>Comparativa entre Leaflet.js y JavaScript Maps API</h1>
+            <h3>Equipo Flying Squirrels</h3>
+        </div>
+        <h2 id="leaflet-title">Ejemplo usando Leaflet.js</h2>
+        <h2 id="gmaps-title">Ejemplo usando Google Maps API</h2>
+        <div id="leaflet-map"></div>
+        <div id="gmaps-map"></div>
+    </div>
+</body>
+
+</html>
