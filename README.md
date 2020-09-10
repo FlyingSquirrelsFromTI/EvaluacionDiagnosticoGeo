@@ -1,5 +1,6 @@
 # Sistemas Georeferenciados 2
-
+[Pagina Principal](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2)
 ## Lista de trabajos
-1. Evaluación diagnóstico
-2. Comparación Leaflet vs Google Maps
+1. [Evaluación diagnóstico](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio1/)
+2. [Comparación Leaflet vs Google Maps](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio2/)
+3. [Generación de poligonos](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio3/)
