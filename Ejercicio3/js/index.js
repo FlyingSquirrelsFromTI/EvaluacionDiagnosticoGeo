@@ -13,13 +13,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1
 }).addTo(leafletMap);
 
-// L.tileLayer('http://a.tile.stamen.com/toner/${z}/${x}/${y}.png', {
-//     maxZoom: 18,
-//     id: 'mapbox/streets-v11',
-//     tileSize: 512,
-//     zoomOffset: -1
-// }).addTo(leafletMap);
-
 function onMapClick(e) {
     if (addNewPolygon) {
         latestPolygon = null;
@@ -35,7 +28,6 @@ function onMapClick(e) {
 
         latestPolygon = L.polygon(currentCoordinates).addTo(leafletMap);
     }
-    console.log([...currentCoordinates]);
 }
 
 function onContextMenu(e) {
