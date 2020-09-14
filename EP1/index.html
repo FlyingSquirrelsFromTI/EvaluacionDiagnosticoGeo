@@ -25,11 +25,22 @@
 
 <body>
     <div class="root">
-        <div>
-            <h1>Colocando polígonos en Leaflet</h1>
-            <h2>Click izquierdo para colocar un punto y click derecho para terminar polígono</h2>
+        <div id="main-title">
+            <h1>Examen Parcial 1</h1>
+            <h3>Equipo Flying Squirrels</h3>
+            <h3>Instrucciones</h3>
+            <p>El mapa deberá iniciar con el tile OpenStreetMap's. Posteriormente se podrán agregar
+                cuantos marcadores sean necesarios con la condición de que al agregar más de 10, la visualización del
+                mapa cambie de tile de manera aleatoria entre 3 fuentes diferentes de mapas y conservando los marcadores
+                colocados previamente. Por último dibujar el polígono formado entre ellos. Una vez marcado el polígono
+                se deberá indicar mediante una notificación cuáles fueron las coordenadas [lat,lng] de todos los
+                marcadores. Así mismo estás últimas deberán aparecer en una segunda región de mapa posicionadas con otro
+                tile aleatorio.</p>
         </div>
-        <div id="leaflet-map"></div>
+        <h2 id="title1">En este mapa se colocan marcadores usando click izquierdo</h2>
+        <h2 id="title2">En este mapa aparecen los marcadores si hay más de 10</h2>
+        <div id="map1"></div>
+        <div id="map2"></div>
     </div>
 </body>
 
