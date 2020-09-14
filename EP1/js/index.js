@@ -30,14 +30,13 @@ function onMapClick(e) {
 
     currentCoordinates.push([e.latlng.lat, e.latlng.lng]);
     L.marker([e.latlng.lat, e.latlng.lng]).addTo(leafletMap);
-
     if (currentCoordinates.length >= MIN_MARKERS) {
+        if (latestPolygon) {
+            leafletMap.removeLayer(latestPolygon);
+        }
 
         latestPolygon = L.polygon(currentCoordinates).addTo(leafletMap);
         secondMapCoordinates.push.apply(secondMapCoordinates, currentCoordinates);
-
-        currentCoordinates.push([e.latlng.lat, e.latlng.lng]);
-        L.marker([e.latlng.lat, e.latlng.lng]).addTo(leafletMap);
 
         // Llamar alerta
         swal.fire({
@@ -85,7 +84,7 @@ leafletMap.on("contextmenu", onContextMenu);
 function currentCoordinatesToHTML() {
     let html = '';
     currentCoordinates.forEach((coordenate, index) => {
-        html += `<span><b>${index}:</b></span>${coordenate}</br>`;
+        html += `<span><b>${index + 1}:</b></span>${coordenate}</br>`;
     })
     return html;
 }
