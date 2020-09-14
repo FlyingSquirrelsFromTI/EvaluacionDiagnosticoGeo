@@ -38,15 +38,6 @@ function onMapClick(e) {
         latestPolygon = L.polygon(currentCoordinates).addTo(leafletMap);
         secondMapCoordinates.push.apply(secondMapCoordinates, currentCoordinates);
 
-        // Llamar alerta
-        swal.fire({
-            title: 'Sus Coordenadas:',
-            target: document.getElementById('alert'),
-            html: currentCoordinatesToHTML(),
-            icon: 'info',
-            confirmButtonText: "Gracias!"
-        });
-
         //SE AGREGA TODO AL SEGUNDO MAPA
 
         if (leafletMap2 !== undefined) {
@@ -71,6 +62,14 @@ function onMapClick(e) {
             L.marker([secondMapCoordinates[i][0], secondMapCoordinates[i][1]]).addTo(leafletMap2);
         }
 
+        // Llamar alerta
+        swal.fire({
+            title: 'Sus Coordenadas:',
+            target: document.getElementById('alert'),
+            html: currentCoordinatesToHTML(),
+            icon: 'info',
+            confirmButtonText: "Gracias!"
+        });
     }
 }
 
