@@ -22,7 +22,7 @@ function onMapClick(e) {
 
     currentCoordinates.push([e.latlng.lat, e.latlng.lng]);
     L.marker([e.latlng.lat, e.latlng.lng]).addTo(leafletMap);
-    if (currentCoordinates.length >= 3) {
+    if (currentCoordinates.length >= MIN_MARKERS) {
         if (latestPolygon) {
             leafletMap.removeLayer(latestPolygon);
         }
