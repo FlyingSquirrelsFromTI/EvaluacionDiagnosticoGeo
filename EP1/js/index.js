@@ -1,7 +1,7 @@
 let currentCoordinates = [];
+let secondMapCoordinates = [];
 let latestPolygon = null;
 let addNewPolygon = true;
-let secondMapCoordinates = [];
 let leafletMap2;
 let tiles = [
     "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
@@ -39,16 +39,17 @@ function onMapClick(e) {
         secondMapCoordinates.push.apply(secondMapCoordinates, currentCoordinates);
 
         //SE AGREGA TODO AL SEGUNDO MAPA
-
         if (leafletMap2 !== undefined) {
             leafletMap2.off();
             leafletMap2.remove();
         }
+
         leafletMap2 = L.map("map2").setView(
             [CENTER_LAT, CENTER_LNG],
             ZOOM_LEVEL
         );
-        L.tileLayer(tiles[(Math.floor((Math.random() * 3) + 0))], {
+
+        L.tileLayer(tiles[(Math.floor((Math.random() * 3)))], {
             maxZoom: 18,
             attribution:
                 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
@@ -58,6 +59,7 @@ function onMapClick(e) {
             tileSize: 512,
             zoomOffset: -1,
         }).addTo(leafletMap2);
+
         for (let i = 0; i < secondMapCoordinates.length; i++) {
             L.marker([secondMapCoordinates[i][0], secondMapCoordinates[i][1]]).addTo(leafletMap2);
         }
