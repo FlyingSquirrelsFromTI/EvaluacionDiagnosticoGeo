@@ -14,6 +14,11 @@ body {
     grid-template-rows: 1fr 1fr 10fr;
     grid-template-columns: repeat(2, 1fr);
 }
+.alert {
+    position: absolute;;
+    height:50%;
+    width:500px;
+}
 
 #main-title {
     grid-row: 1;
