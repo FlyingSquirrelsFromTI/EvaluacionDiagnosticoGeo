@@ -48,11 +48,13 @@ function onLocationFound(e) {
     .bindPopup("You are within " + radius + " meters from this point")
     .openPopup();
 
-  L.circle(e.latlng, radius).addTo(leafletMap);
+  //L.circle(e.latlng, radius).addTo(leafletMap);
     try {
-      // db.collection("CoordenadasTiempoReal").add({
-      //   coords: new firebase.firestore.GeoPoint(e.latitude, e.longitude),
-      // });
+      db.collection("CoordenadasTiempoReal").add({
+        coords: new firebase.firestore.GeoPoint(e.latitude, e.longitude),
+        metodo: "Localizacion usuario"
+      });
+      
       swal.fire({
         title: "La siguientes coordenadas se guardaron exitosamente:",
         target: document.getElementById("alert"),
@@ -110,6 +112,7 @@ function saveCoordsManualy() {
         parseInt(document.getElementById("txtLat").value),
         parseInt(document.getElementById("txtLong").value)
       ),
+      metodo: "Manual"
     });
     L.marker([
       parseInt(document.getElementById("txtLat").value),
