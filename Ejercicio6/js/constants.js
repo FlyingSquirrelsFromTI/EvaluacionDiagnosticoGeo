@@ -1,0 +1,3 @@
+const CENTER_LAT = 21.154403;
+const CENTER_LNG =-101.70481;
+const ZOOM_LEVEL = 7;
