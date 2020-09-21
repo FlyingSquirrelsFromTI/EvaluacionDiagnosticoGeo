@@ -1,3 +1,4 @@
-const CENTER_LAT = 21.154403;
-const CENTER_LNG =-101.70481;
-const ZOOM_LEVEL = 7;
+const CENTER_LAT = 37.8;
+const CENTER_LNG = -96;
+const ZOOM_LEVEL = 4;
+const ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';

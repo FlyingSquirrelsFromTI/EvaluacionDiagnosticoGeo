@@ -1,135 +1,129 @@
-let currentCoordinates = [];
+let geojson;
+let info = L.control();
+let legend = L.control({ position: 'bottomright' });
 
-// My firebase config
-var firebaseConfig = {
-  apiKey: "AIzaSyCa7xMnsowLccKlTfad-IxV75cey7yzUnQ",
-  authDomain: "jorgerangel65952.firebaseapp.com",
-  databaseURL: "https://jorgerangel65952.firebaseio.com",
-  projectId: "jorgerangel65952",
-  storageBucket: "jorgerangel65952.appspot.com",
-  messagingSenderId: "184673916307",
-  appId: "1:184673916307:web:d798c0f3774bcd86b74466",
-  measurementId: "G-LL6BJPQKJ3",
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+function getColor(d) {
+    return d > 1000
+        ? '#800026'
+        : d > 500
+        ? '#BD0026'
+        : d > 200
+        ? '#E31A1C'
+        : d > 100
+        ? '#FC4E2A'
+        : d > 50
+        ? '#FD8D3C'
+        : d > 20
+        ? '#FEB24C'
+        : d > 10
+        ? '#FED976'
+        : '#FFEDA0';
+}
 
-//Init leafletMap
-const leafletMap = L.map("map1").setView([CENTER_LAT, CENTER_LNG], ZOOM_LEVEL);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 18,
-  attribution:
-    'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-  id: "mapbox/streets-v11",
-  tileSize: 512,
-  zoomOffset: -1,
+function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.density),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7,
+    };
+}
+
+function highlightFeature(e) {
+    let layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7,
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+    info.update(layer.feature.properties);
+}
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+    info.update();
+}
+
+function zoomToFeature(e) {
+    map.fitBounds(e.target.getBounds());
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: zoomToFeature,
+    });
+}
+
+const leafletMap = L.map('leaflet-map').setView(
+    [CENTER_LAT, CENTER_LNG],
+    ZOOM_LEVEL
+);
+L.tileLayer(
+    `https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=${ACCESS_TOKEN}`,
+    {
+        maxZoom: 18,
+        attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+    }
+).addTo(leafletMap);
+
+geojson = L.geoJson(statesData, {
+    style: style,
+    onEachFeature: onEachFeature,
 }).addTo(leafletMap);
 
-leafletMap.locate({ setView: true, maxZoom: 16 });
+info.onAdd = function (map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+};
 
-function currentCoordinatesToHTML() {
-  let html = "";
-  currentCoordinates.forEach((coordenate, index) => {
-    html += `<span><b>${index + 1}:</b></span>${coordenate}</br>`;
-  });
-  return html;
-}
+// method that we will use to update the control based on feature properties passed
+info.update = function (props) {
+    this._div.innerHTML =
+        '<h4>US Population Density</h4>' +
+        (props
+            ? '<b>' +
+              props.name +
+              '</b><br />' +
+              props.density +
+              ' people / mi<sup>2</sup>'
+            : 'Hover over a state');
+};
 
-//FUNCION PARA OBTENER LOCALIZACIÓN
-function onLocationFound(e) {
-  var radius = e.accuracy;
-  console.log("This is from current pos:", e.latitude, e.longitude);
-  L.marker(e.latlng)
-    .addTo(leafletMap)
-    .bindPopup("You are within " + radius + " meters from this point")
-    .openPopup();
+info.addTo(leafletMap);
 
-  L.circle(e.latlng, radius).addTo(leafletMap);
-  //   try {
-  //     // db.collection("CoordenadasTiempoReal").add({
-  //     //   coords: new firebase.firestore.GeoPoint(e.latitude, e.longitude),
-  //     // });
-  //     swal.fire({
-  //       title: "La siguientes coordenadas se guardaron exitosamente:",
-  //       target: document.getElementById("alert"),
-  //       text: e.latlng,
-  //       icon: "info",
-  //       confirmButtonText: "Gracias!",
-  //     });
-  //   } catch (error) {
-  //     swal.fire({
-  //       title: "Ocurrio un error al guardar coordenadas",
-  //       text: error,
-  //       icon: "error",
-  //       confirmButtonText: "Gracias!",
-  //     });
-  //   }
-}
+legend.onAdd = function (map) {
+    let div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+        labels = [];
 
-leafletMap.on("locationfound", onLocationFound);
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (let i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' +
+            getColor(grades[i] + 1) +
+            '"></i> ' +
+            grades[i] +
+            (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
 
-//FUNCION DE ALERTA EN CASO DE ERROR AL OBTENER GEOLOCALIZACION
-function onLocationError(e) {
-  swal.fire({
-    title: "Ocurrio un error al obtner los servicios de geolocalizacion",
-    text:
-      e.message +
-      ". Si desea guardar una coordenada utilice las cajas de texto mostradas en el sitio",
-    icon: "error",
-    confirmButtonText: "Gracias!",
-  });
-}
+    return div;
+};
 
-leafletMap.on("locationerror", onLocationError);
-
-//FUNCION PARA OBTENER LOS DATOS DE FB
-db.collection("CoordenadasTiempoReal")
-  .get()
-  .then(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      // doc.data() is never undefined for query doc snapshots
-      //console.log(doc.id, " => ", doc.data());
-      console.log(doc.data().coords.O, doc.data().coords.F);
-      L.marker([doc.data().coords.O, doc.data().coords.F]).addTo(leafletMap);
-      leafletMap.locate({
-        setView: [doc.data().coords.O, doc.data().coords.F],
-        maxZoom: ZOOM_LEVEL,
-      });
-    });
-  });
-
-//GUARDAR COORDENADAS MANUALMENTE
-function saveCoordsManualy() {
-  try {
-    db.collection("CoordenadasTiempoReal").add({
-      coords: new firebase.firestore.GeoPoint(
-        parseInt(document.getElementById("txtLat").value),
-        parseInt(document.getElementById("txtLong").value)
-      ),
-    });
-    L.marker([
-      parseInt(document.getElementById("txtLat").value),
-      parseInt(document.getElementById("txtLong").value),
-    ]).addTo(leafletMap);
-    swal.fire({
-      title: "La siguientes coordenadas se guardaron exitosamente:",
-      target: document.getElementById("alert"),
-      text:
-        document.getElementById("txtLat").value +
-        " " +
-        document.getElementById("txtLong").value,
-      icon: "info",
-      confirmButtonText: "Gracias!",
-    });
-  } catch (error) {
-    swal.fire({
-      title: "Ocurrio un error al guardar coordenadas",
-      text: error,
-      icon: "error",
-      confirmButtonText: "Gracias!",
-    });
-  }
-}
+legend.addTo(leafletMap);
