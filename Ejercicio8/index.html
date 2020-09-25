@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ejercicio4</title>
+        <!-- Sweet alert js -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+        <!-- Leaflet CSS -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin=""
+        />
+        <!-- Leaflet JS -->
+        <script
+            defer
+            src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""
+        ></script>
+        <!-- Scripts firebase -->
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-firestore.js"></script>
+        <!-- Custom stylesheet -->
+        <link rel="stylesheet" href="index.css" />
+        <!-- CDN bootstrap -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+        <!-- Custom scripts -->
+        <script defer src="js/constants.js"></script>
+        <script defer src="js/index.js"></script>
+    </head>
+    <body>
+        <div class="root">
+            <div id="main-title">
+                <h1>Ejercicio 2 segundo parcial</h1>
+                <h3>Equipo Flying Squirrels</h3>
+                <h3>Instrucciones</h3>
+                <p>
+                    En el siguiente mapa puedes elegir el tipo de tile a través
+                    del select mostrado, tambien puedes reiniciar el mapa usando
+                    el boton de "Reiniciar". Una funcionalidad ejecutada
+                    automaticamente es que se cambia el marcador cada que se
+                    agregan 3 de estos.
+                </p>
+                <br />
+                <br />
+                <select id="tiles" onchange="changeTile();">
+                </select>
+                <br />
+                <button onclick="resetMap()">Reset Map</button>
+            </div>
+        </div>
+        <h2 id="title1">
+            En este mapa se colocan los marcadores
+        </h2>
+        <br />
+        <div id="map1"></div>
+    </body>
+</html>
