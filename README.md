@@ -15,5 +15,10 @@
 3. [Generación de polígonos](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio3/)
 4. [Guardando datos en Firebase](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio4/)
 5. [Cambio de icono por par](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio5/)
-6. [Examen Parcial 1](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/EP1/)
-7. [Capa de datos GeoJSON](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio6/)
+6. [Capa de datos GeoJSON](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio6/)
+7. [Obtener localización y guardar en Firebase](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio7/)
+8. [Cambio de capa de tiles dinámicamente](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio8/)
+
+## Examenes
+
+1. [Examen Parcial 1](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/EP1/)
