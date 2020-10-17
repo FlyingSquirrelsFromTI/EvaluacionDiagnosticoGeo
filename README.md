@@ -19,6 +19,7 @@
 7. [Obtener localización y guardar en Firebase](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio7/)
 8. [Cambio de capa de tiles dinámicamente](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio8/)
 9. [Embebiendo un mapa de Geonode](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio9/)
+10. [Práctica final de Geonode](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio10/)
 
 ## Examenes
 
