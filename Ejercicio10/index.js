@@ -4,7 +4,13 @@ window.addEventListener('load', () => {
 });
 
 const test = () => {
-    const pages = ['http://en.wikipedia.org', 'http://www.google.com', 'http://www.facebook.org', 'http://www.twitter.com', 'http://www.amazon.com'];
+    const pages = [
+        'http://localhost/maps/179/embed',
+        'http://localhost/maps/180/embed',
+        'http://localhost/maps/183/embed',
+        'http://localhost/maps/184/embed',
+        'http://localhost/maps/185/embed',
+    ];
     const columnsToCells = document.querySelectorAll('#countryCasesTable tr');
     let iframeContent = document.getElementById('main-iframe');
 
@@ -14,4 +20,4 @@ const test = () => {
             iframeContent.contentWindow.location.reload();
         });
     });
-}
+};
