@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/358c7d921e.js" crossorigin="anonymous"></script>
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Custom script -->
+    <script defer src="index.js"></script>
+
+    <title>Mapas Geonode</title>
+</head>
+
+<body>
+    <div class="container-fluid" id="first-row">
+        <div class="row container-size">
+            <div class="col-12 offset-lg-1 col-lg-7 mt-3 iframe-title-container">
+                <div class="row title-center">
+                    <h1 class="practice-title">
+                        Capas con Geonode Práctica Final
+                    </h1>
+                </div>
+                <div class="row">
+                    <iframe id="main-iframe" src="http://localhost/maps/134/embed" frameborder="0" class="style-iframe"
+                        height="80%" width="100%"></iframe>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3 mt-3">
+                <div class="card text-center">
+                    <div class="card-header font-weight-bold text text-uppercase">Selecciona el mapa a ver:</br>
+                        <small>(Cada mapa tiene las capas de los pasados)</small></div>
+                    <div class="card-body d-flex justify-content-center">
+                        <table id="countryCasesTable">
+                            <tr>
+                                <td>Mapa 1 con capa 1</td>
+                            </tr>
+                            <tr>
+                                <td>Mapa 2 con capa 1 y 2</td>
+                            </tr>
+                            <tr>
+                                <td>Mapa 3 con capa 1, 2 y 3</td>
+                            </tr>
+                            <tr>
+                                <td>Mapa 4 con capa 1, 2, 3 y 4</td>
+                            </tr>
+                            <tr>
+                                <td>Mapa 5 con capa 1, 2, 3, 4 y 5</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

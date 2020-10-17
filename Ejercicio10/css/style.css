@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body {
+    min-height: 100%;
+    background-color: #EBE0BB;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+@media only screen and (min-width: 992px) {
+    #first-row .row {
+        overflow: hidden;
+    }
+    #first-row .card {
+        height: 100%;
+    }
+    #first-row .card-body {
+        min-height: 90%;
+        overflow-y: hidden;
+    }
+}
+
+#countryCasesTable {
+    width: 90%;
+    height: 100%;
+    overflow: hidden; 
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+#countryCasesTable th, #countryCasesTable td {
+    border-bottom: 1px solid #ccc; 
+}
+
+#countryCasesTable tr:hover :not(th) {
+    background-color:  rgba(189, 171, 9, 0.411);
+    cursor: pointer;
+  
+}
+
+
+.card-header {
+    background-color: #ECD689 !important;
+}
+
+.card-body, .card {
+    background-color: #F8F0AD !important;
+}
+
+tr {
+    color: white;
+}
+
+
+td{
+    background-color: #AEA126;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+iframe {
+    display: block;       /* iframes are inline by default */
+    background: rgba(236, 214, 137, 0.6);
+    border: none;         /* Reset default border */
+    height: 100vh;        /* Viewport-relative units */
+    width: 100vw;
+}
+
+h1 {
+    font-family: FANTASY;
+}
+
+.practice-title {
+    text-align: center; 
+    align-self: center; 
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.title-center {
+    justify-content: center; 
+    height: 20%;
+}
+
+.style-iframe {
+    padding: 50px;
+    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    height:80%;
+    width:100%;
+    position:absolute;
+    top:20%px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+}
+
+.container-size {
+    height: 95vh;
+}
+
+.iframe-title-container {
+    background-color: #ECD689;
+}
