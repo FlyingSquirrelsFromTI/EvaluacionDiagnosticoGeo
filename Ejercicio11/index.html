@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <!-- Leaflet JS -->
+    <script defer src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <!-- TurfJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
+
+    <!-- Custom stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Custom script -->
+    <script defer src="js/constants.js"></script>
+    <script defer src="js/index.js"></script>
+    <script defer src="js/map1.js"></script>
+    <script defer src="js/map2.js"></script>
+    <script defer src="js/map3.js"></script>
+
+    <title>Demostración TurfJS</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ejemplos TurfJS</h1>
+        <div class="grid">
+            <div class="leaflet-map-container">
+                <h2><a href="https://turfjs.org/docs/#along">Along</a></h2>
+                <div class="leaflet-map" id="leaflet-map-1"></div>
+            </div>
+            <div class="leaflet-map-container">
+                <h2><a href="https://turfjs.org/docs/#centerOfMass">CenterOfMass</a></h2>
+                <div class="leaflet-map" id="leaflet-map-2"></div>
+            </div>
+            <div class="leaflet-map-container">
+                <h2><a href="https://turfjs.org/docs/#pointOnFeature">PointOnFeature</a></h2>
+                <div class="leaflet-map" id="leaflet-map-3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

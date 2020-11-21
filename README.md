@@ -20,6 +20,7 @@
 8. [Cambio de capa de tiles dinámicamente](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio8/)
 9. [Embebiendo un mapa de Geonode](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio9/)
 10. [Práctica final de Geonode](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio10/)
+11. [Usando TurfJS](https://flyingsquirrelsfromti.github.io/Sistemas-Georef2/Ejercicio11/)
 
 ## Examenes
 
